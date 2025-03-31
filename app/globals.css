@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#__next-route-announcer {
+  display: none !important;
+}
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 0 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 45 80% 52%;
+    --secondary-foreground: 0 0% 10%;
+
+    --accent: 120 60% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 100% 50%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #e6b325 0%, #ff0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.globe-pattern {
+  background-image: radial-gradient(
+    circle at 10% 20%,
+    rgba(255, 0, 0, 0.05) 0%,
+    rgba(255, 152, 0, 0.05) 25%,
+    rgba(230, 179, 37, 0.05) 50%,
+    rgba(76, 175, 80, 0.05) 75%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+}
+
