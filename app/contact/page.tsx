@@ -85,10 +85,6 @@ export default function ContactPage() {
           message: "" 
         });
         setCaptchaValue(null);
-        // Reset the CAPTCHA
-        if (typeof window !== 'undefined' && window.grecaptcha) {
-          window.grecaptcha.reset();
-        }
   
         setTimeout(() => {
           setIsSubmitted(false);
@@ -470,12 +466,12 @@ export default function ContactPage() {
                       />
                     </div>
                     {/* Captcha component */}
-                    <div className="flex justify-center">
+                    {/* <div className="flex justify-center">
                       <ReCAPTCHA 
                         sitekey={process.env.NEXT_PUBLIC_SITE_KEY!}
                         onChange={handleCaptchaChange}
                       />
-                    </div>
+                    </div> */}
                     <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={isSubmitting}>
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
