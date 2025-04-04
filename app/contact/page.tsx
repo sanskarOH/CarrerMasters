@@ -3,78 +3,335 @@
 import type React from "react"
 
 import { useState } from "react"
+import ReCAPTCHA from 'react-google-recaptcha'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Clock } from "lucide-react"
+import { Mail, Phone as PhoneIcon, MapPin, Clock } from "lucide-react"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    countryCode: "+65", // Default to Singapore
+    phoneNumber: "",
     country: "",
     message: "",
   })
 
-
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSelectChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, country: value }))
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    
+    if(!captchaValue){
+      alert('Please complete the CAPTCHA');
+      setIsSubmitting(false);
+      return;
+    }
 
     const access_key = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
     if (!access_key) {
       console.error("Missing Web3Forms access key.");
       alert("Form submission is disabled. Please set the API key.");
+      setIsSubmitting(false);
       return;
     }
 
-
-    const formDataToSend = new FormData();
-    formDataToSend.append("access_key", access_key || "");
-    formDataToSend.append("name", formData.name);
-    formDataToSend.append("email", formData.email);
-    formDataToSend.append("country", formData.country);
-    formDataToSend.append("message", formData.message);
-
-
     try {
+      // Using fetch with JSON body
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formDataToSend,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: access_key,
+          name: formData.name,
+          email: formData.email,
+          phone: `${formData.countryCode} ${formData.phoneNumber}`,
+          country: formData.country,
+          message: formData.message,
+          "g-recaptcha-response": captchaValue
+        })
       });
   
       const result = await response.json();
+      console.log("Form submission result:", result);
   
       if (result.success) {
         setIsSubmitted(true);
-        setFormData({ name: "", email: "", country: "", message: "" });
+        setFormData({ 
+          name: "", 
+          email: "", 
+          countryCode: "+65", 
+          phoneNumber: "", 
+          country: "", 
+          message: "" 
+        });
+        setCaptchaValue(null);
+        // Reset the CAPTCHA
+        if (typeof window !== 'undefined' && window.grecaptcha) {
+          window.grecaptcha.reset();
+        }
   
         setTimeout(() => {
           setIsSubmitted(false);
         }, 5000);
       } else {
-        alert("Something went wrong. Please try again.");
+        console.error("Form submission failed:", result);
+        alert(result.message || "CAPTCHA verification failed. Please try again.");
       }
     } catch (error) {
-      alert("Failed to submit the form.");
+      console.error("Form submission error:", error);
+      alert("Failed to submit the form. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
   }
+
+  const handleCaptchaChange = (value: string | null) => {
+    console.log("CAPTCHA value:", value ? "set" : "not set");
+    setCaptchaValue(value);
+  };
+
+  // Country codes for phone numbers
+  const countryCodes = [
+    { code: "+93", country: "Afghanistan" },
+    { code: "+355", country: "Albania" },
+    { code: "+213", country: "Algeria" },
+    { code: "+376", country: "Andorra" },
+    { code: "+244", country: "Angola" },
+    { code: "+1", country: "Antigua and Barbuda" },
+    { code: "+54", country: "Argentina" },
+    { code: "+374", country: "Armenia" },
+    { code: "+61", country: "Australia" },
+    { code: "+43", country: "Austria" },
+    { code: "+994", country: "Azerbaijan" },
+    { code: "+1", country: "Bahamas" },
+    { code: "+973", country: "Bahrain" },
+    { code: "+880", country: "Bangladesh" },
+    { code: "+1", country: "Barbados" },
+    { code: "+375", country: "Belarus" },
+    { code: "+32", country: "Belgium" },
+    { code: "+501", country: "Belize" },
+    { code: "+229", country: "Benin" },
+    { code: "+975", country: "Bhutan" },
+    { code: "+591", country: "Bolivia" },
+    { code: "+387", country: "Bosnia and Herzegovina" },
+    { code: "+267", country: "Botswana" },
+    { code: "+55", country: "Brazil" },
+    { code: "+673", country: "Brunei" },
+    { code: "+359", country: "Bulgaria" },
+    { code: "+226", country: "Burkina Faso" },
+    { code: "+257", country: "Burundi" },
+    { code: "+855", country: "Cambodia" },
+    { code: "+237", country: "Cameroon" },
+    { code: "+1", country: "Canada" },
+    { code: "+238", country: "Cape Verde" },
+    { code: "+236", country: "Central African Republic" },
+    { code: "+235", country: "Chad" },
+    { code: "+56", country: "Chile" },
+    { code: "+86", country: "China" },
+    { code: "+57", country: "Colombia" },
+    { code: "+269", country: "Comoros" },
+    { code: "+242", country: "Congo" },
+    { code: "+243", country: "Congo, Democratic Republic of the" },
+    { code: "+506", country: "Costa Rica" },
+    { code: "+385", country: "Croatia" },
+    { code: "+53", country: "Cuba" },
+    { code: "+357", country: "Cyprus" },
+    { code: "+420", country: "Czech Republic" },
+    { code: "+45", country: "Denmark" },
+    { code: "+253", country: "Djibouti" },
+    { code: "+1", country: "Dominica" },
+    { code: "+1", country: "Dominican Republic" },
+    { code: "+670", country: "East Timor" },
+    { code: "+593", country: "Ecuador" },
+    { code: "+20", country: "Egypt" },
+    { code: "+503", country: "El Salvador" },
+    { code: "+240", country: "Equatorial Guinea" },
+    { code: "+291", country: "Eritrea" },
+    { code: "+372", country: "Estonia" },
+    { code: "+251", country: "Ethiopia" },
+    { code: "+679", country: "Fiji" },
+    { code: "+358", country: "Finland" },
+    { code: "+33", country: "France" },
+    { code: "+241", country: "Gabon" },
+    { code: "+220", country: "Gambia" },
+    { code: "+995", country: "Georgia" },
+    { code: "+49", country: "Germany" },
+    { code: "+233", country: "Ghana" },
+    { code: "+30", country: "Greece" },
+    { code: "+1", country: "Grenada" },
+    { code: "+502", country: "Guatemala" },
+    { code: "+224", country: "Guinea" },
+    { code: "+245", country: "Guinea-Bissau" },
+    { code: "+592", country: "Guyana" },
+    { code: "+509", country: "Haiti" },
+    { code: "+504", country: "Honduras" },
+    { code: "+36", country: "Hungary" },
+    { code: "+354", country: "Iceland" },
+    { code: "+91", country: "India" },
+    { code: "+62", country: "Indonesia" },
+    { code: "+98", country: "Iran" },
+    { code: "+964", country: "Iraq" },
+    { code: "+353", country: "Ireland" },
+    { code: "+972", country: "Israel" },
+    { code: "+39", country: "Italy" },
+    { code: "+225", country: "Ivory Coast" },
+    { code: "+1", country: "Jamaica" },
+    { code: "+81", country: "Japan" },
+    { code: "+962", country: "Jordan" },
+    { code: "+7", country: "Kazakhstan" },
+    { code: "+254", country: "Kenya" },
+    { code: "+686", country: "Kiribati" },
+    { code: "+965", country: "Kuwait" },
+    { code: "+996", country: "Kyrgyzstan" },
+    { code: "+856", country: "Laos" },
+    { code: "+371", country: "Latvia" },
+    { code: "+961", country: "Lebanon" },
+    { code: "+266", country: "Lesotho" },
+    { code: "+231", country: "Liberia" },
+    { code: "+218", country: "Libya" },
+    { code: "+423", country: "Liechtenstein" },
+    { code: "+370", country: "Lithuania" },
+    { code: "+352", country: "Luxembourg" },
+    { code: "+389", country: "North Macedonia" },
+    { code: "+261", country: "Madagascar" },
+    { code: "+265", country: "Malawi" },
+    { code: "+60", country: "Malaysia" },
+    { code: "+960", country: "Maldives" },
+    { code: "+223", country: "Mali" },
+    { code: "+356", country: "Malta" },
+    { code: "+692", country: "Marshall Islands" },
+    { code: "+222", country: "Mauritania" },
+    { code: "+230", country: "Mauritius" },
+    { code: "+52", country: "Mexico" },
+    { code: "+691", country: "Micronesia" },
+    { code: "+373", country: "Moldova" },
+    { code: "+377", country: "Monaco" },
+    { code: "+976", country: "Mongolia" },
+    { code: "+382", country: "Montenegro" },
+    { code: "+212", country: "Morocco" },
+    { code: "+258", country: "Mozambique" },
+    { code: "+95", country: "Myanmar" },
+    { code: "+264", country: "Namibia" },
+    { code: "+674", country: "Nauru" },
+    { code: "+977", country: "Nepal" },
+    { code: "+31", country: "Netherlands" },
+    { code: "+64", country: "New Zealand" },
+    { code: "+505", country: "Nicaragua" },
+    { code: "+227", country: "Niger" },
+    { code: "+234", country: "Nigeria" },
+    { code: "+850", country: "North Korea" },
+    { code: "+47", country: "Norway" },
+    { code: "+968", country: "Oman" },
+    { code: "+92", country: "Pakistan" },
+    { code: "+680", country: "Palau" },
+    { code: "+970", country: "Palestine" },
+    { code: "+507", country: "Panama" },
+    { code: "+675", country: "Papua New Guinea" },
+    { code: "+595", country: "Paraguay" },
+    { code: "+51", country: "Peru" },
+    { code: "+63", country: "Philippines" },
+    { code: "+48", country: "Poland" },
+    { code: "+351", country: "Portugal" },
+    { code: "+974", country: "Qatar" },
+    { code: "+82", country: "South Korea" },
+    { code: "+40", country: "Romania" },
+    { code: "+7", country: "Russia" },
+    { code: "+250", country: "Rwanda" },
+    { code: "+1", country: "Saint Kitts and Nevis" },
+    { code: "+1", country: "Saint Lucia" },
+    { code: "+1", country: "Saint Vincent and the Grenadines" },
+    { code: "+685", country: "Samoa" },
+    { code: "+378", country: "San Marino" },
+    { code: "+239", country: "Sao Tome and Principe" },
+    { code: "+966", country: "Saudi Arabia" },
+    { code: "+221", country: "Senegal" },
+    { code: "+381", country: "Serbia" },
+    { code: "+248", country: "Seychelles" },
+    { code: "+232", country: "Sierra Leone" },
+    { code: "+65", country: "Singapore" },
+    { code: "+421", country: "Slovakia" },
+    { code: "+386", country: "Slovenia" },
+    { code: "+677", country: "Solomon Islands" },
+    { code: "+252", country: "Somalia" },
+    { code: "+27", country: "South Africa" },
+    { code: "+211", country: "South Sudan" },
+    { code: "+34", country: "Spain" },
+    { code: "+94", country: "Sri Lanka" },
+    { code: "+249", country: "Sudan" },
+    { code: "+597", country: "Suriname" },
+    { code: "+268", country: "Eswatini" },
+    { code: "+46", country: "Sweden" },
+    { code: "+41", country: "Switzerland" },
+    { code: "+963", country: "Syria" },
+    { code: "+886", country: "Taiwan" },
+    { code: "+992", country: "Tajikistan" },
+    { code: "+255", country: "Tanzania" },
+    { code: "+66", country: "Thailand" },
+    { code: "+228", country: "Togo" },
+    { code: "+676", country: "Tonga" },
+    { code: "+1", country: "Trinidad and Tobago" },
+    { code: "+216", country: "Tunisia" },
+    { code: "+90", country: "Turkey" },
+    { code: "+993", country: "Turkmenistan" },
+    { code: "+688", country: "Tuvalu" },
+    { code: "+256", country: "Uganda" },
+    { code: "+380", country: "Ukraine" },
+    { code: "+971", country: "United Arab Emirates" },
+    { code: "+44", country: "United Kingdom" },
+    { code: "+1", country: "United States" },
+    { code: "+598", country: "Uruguay" },
+    { code: "+998", country: "Uzbekistan" },
+    { code: "+678", country: "Vanuatu" },
+    { code: "+379", country: "Vatican City" },
+    { code: "+58", country: "Venezuela" },
+    { code: "+84", country: "Vietnam" },
+    { code: "+967", country: "Yemen" },
+    { code: "+260", country: "Zambia" },
+    { code: "+263", country: "Zimbabwe" }
+  ];
+  // List of all countries for the country dropdown
+  const countries = [
+    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
+    "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan",
+    "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia",
+    "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica",
+    "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt",
+    "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon",
+    "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana",
+    "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel",
+    "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kosovo",
+    "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania",
+    "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius",
+    "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia",
+    "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman",
+    "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
+    "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe",
+    "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia",
+    "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan",
+    "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan",
+    "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City",
+    "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+  ];
 
   return (
     <div className="py-12">
@@ -135,21 +392,63 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                      >
+                        Phone Number
+                      </label>
+                      <div className="flex space-x-2">
+                        <div className="w-1/3">
+                          <Select 
+                            value={formData.countryCode} 
+                            onValueChange={(value) => handleSelectChange("countryCode", value)}
+                          >
+                            <SelectTrigger>
+                              <SelectValue placeholder="Code" />
+                            </SelectTrigger>
+                            <SelectContent className="max-h-[300px]">
+                              {countryCodes.map(({ code, country }) => (
+                                <SelectItem key={code} value={code}>
+                                  {code} ({country})
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div className="w-2/3">
+                          <Input
+                            id="phoneNumber"
+                            name="phoneNumber"
+                            type="tel"
+                            value={formData.phoneNumber}
+                            onChange={handleChange}
+                            placeholder="Phone number"
+                            required
+                            className="w-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <label
                         htmlFor="country"
                         className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                       >
                         Country of Interest
                       </label>
-                      <Select value={formData.country} onValueChange={handleSelectChange}>
+                      <Select 
+                        value={formData.country} 
+                        onValueChange={(value) => handleSelectChange("country", value)}
+                      >
                         <SelectTrigger className="w-full">
                           <SelectValue placeholder="Select a country" />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="singapore">Singapore</SelectItem>
-                          <SelectItem value="dubai">Dubai</SelectItem>
-                          <SelectItem value="mauritius">Mauritius</SelectItem>
-                          <SelectItem value="uk">United Kingdom</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
+                        <SelectContent className="max-h-[300px]">
+                          {countries.map((country) => (
+                            <SelectItem key={country} value={country.toLowerCase()}>
+                              {country}
+                            </SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </div>
@@ -168,6 +467,13 @@ export default function ContactPage() {
                         placeholder="How can we help you?"
                         required
                         className="w-full min-h-[150px]"
+                      />
+                    </div>
+                    {/* Captcha component */}
+                    <div className="flex justify-center">
+                      <ReCAPTCHA 
+                        sitekey={process.env.NEXT_PUBLIC_SITE_KEY!}
+                        onChange={handleCaptchaChange}
                       />
                     </div>
                     <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={isSubmitting}>
@@ -193,10 +499,7 @@ export default function ContactPage() {
                       <div className="overflow-hidden">
                         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">Email Us</h3>
                         <p className="text-gray-600 dark:text-gray-300 text-sm truncate">
-                          sansakrdiwedi@gmail.com
-                        </p>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm truncate">
-                          sansakrdiwedi@gmail.com
+                          connect@careermasters.sg
                         </p>
                       </div>
                     </div>
@@ -206,12 +509,11 @@ export default function ContactPage() {
                   <CardContent className="p-6">
                     <div className="flex items-start">
                       <div className="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
-                        <Phone className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                        <PhoneIcon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">Call Us</h3>
-                        <p className="text-gray-600 dark:text-gray-300">+1 (123) 456-7890</p>
-                        <p className="text-gray-600 dark:text-gray-300">+1 (987) 654-3210</p>
+                        <p className="text-gray-600 dark:text-gray-300">+91 89102 81714</p>
                       </div>
                     </div>
                   </CardContent>
@@ -225,23 +527,8 @@ export default function ContactPage() {
                 {[
                   {
                     country: "Singapore",
-                    address: "123 Orchard Road, #05-01, Singapore 123456",
+                    address: "119 Potong pasir , Ave 1, Singapore 350119",
                     hours: "Mon-Fri: 9:00 AM - 6:00 PM",
-                  },
-                  {
-                    country: "Dubai",
-                    address: "456 Sheikh Zayed Road, Dubai, UAE",
-                    hours: "Sun-Thu: 8:00 AM - 5:00 PM",
-                  },
-                  {
-                    country: "Mauritius",
-                    address: "789 Coastal Road, Port Louis, Mauritius",
-                    hours: "Mon-Fri: 9:00 AM - 5:00 PM",
-                  },
-                  {
-                    country: "United Kingdom",
-                    address: "10 Oxford Street, London, UK",
-                    hours: "Mon-Fri: 9:00 AM - 5:30 PM",
                   },
                 ].map((office) => (
                   <Card key={office.country}>
@@ -281,4 +568,3 @@ export default function ContactPage() {
     </div>
   )
 }
-

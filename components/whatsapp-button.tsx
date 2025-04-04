@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button"
 
 const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {
-    // Replace with your WhatsApp number
-    window.open("https://wa.me/95694899818", "_blank")
+ 
+    window.open("https://wa.me/+918910281714", "_blank")
   }
 
   return (
