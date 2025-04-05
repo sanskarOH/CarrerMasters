@@ -86,13 +86,13 @@ export default function TestimonialsPage() {
               <CardContent className="p-6">
                 <div className="flex items-start mb-4">
                   <div className="mr-4 flex-shrink-0">
-                    <div className="w-12 h-12 rounded-full overflow-hidden">
+                    {/* <div className="w-12 h-12 rounded-full overflow-hidden">
                       <img
                         src={testimonial.image || "/placeholder.svg"}
                         alt={testimonial.name}
                         className="w-full h-full object-cover"
                       />
-                    </div>
+                    </div> */}
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{testimonial.name}</h3>
