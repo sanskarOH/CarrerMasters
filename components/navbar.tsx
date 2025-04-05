@@ -58,7 +58,7 @@ const Navbar = () => {
             </div>
             <div className="ml-4 flex items-center">
               <Button className="bg-cm-red hover:bg-cm-red/90 text-white">
-                <Plane className="mr-2 h-4 w-4" /> <a href="/contact">Apply Now</a>
+                <a href="/contact">Apply Now</a><Plane className="mr-2 h-4 w-4"/>
               </Button>
             </div>
           </div>

@@ -5,13 +5,22 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ChevronRight, MapPin, Globe, CreditCard, Compass, GraduationCap, Plane } from "lucide-react"
+import {
+  ChevronRight,
+  MapPin,
+  Globe,
+  Compass,
+  GraduationCap,
+  Plane,
+  Stamp,
+  Banknote
+} from "lucide-react"
 
 const countries = [
-  { name: "Singapore", video: "/singapore.mp4?height=1080&width=1920" , image:"/singapore.jpg" },
-  { name: "Dubai", video: "/dubai.mp4?height=1080&width=1920" , image:"/dubai.jpg" },
-  { name: "Mauritius", video: "/mauritus.mp4?height=1080&width=1920" , image:"/mauritus.jpg" },
-  { name: "United Kingdom", video: "/uk.mp4?height=1080&width=1920" , image:"/london.jpg" },
+  { name: "Singapore", video: "/singapore.mp4?height=1080&width=1920", image: "/singapore.jpg" },
+  { name: "Dubai", video: "/dubai.mp4?height=1080&width=1920", image: "/dubai.jpg" },
+  { name: "Mauritius", video: "/mauritus.mp4?height=1080&width=1920", image: "/mauritus.jpg" },
+  { name: "United Kingdom", video: "/uk.mp4?height=1080&width=1920", image: "/london.jpg" }
 ]
 
 export default function Home() {
@@ -20,25 +29,21 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % countries.length)
-    }, 5000) // Change video every 5 seconds
-
+    }, 5000)
     return () => clearInterval(interval)
   }, [])
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section with Video Carousel */}
+      {/* Hero Section */}
       <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-
-        {/* Video/Image Carousel */}
         <div className="relative h-full w-full">
           {countries.map((country, index) => (
             <div
               key={country.name}
-              className={`absolute inset-0 transition-opacity duration-1000 ${
-                index === currentVideoIndex ? "opacity-100" : "opacity-0"
-              }`}
+              className={`absolute inset-0 transition-opacity duration-1000 ${index === currentVideoIndex ? "opacity-100" : "opacity-0"
+                }`}
             >
               <video
                 src={country.video || "/placeholder.svg"}
@@ -54,18 +59,15 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Hero Content */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="text-center text-white px-4">
-            <div className="flex justify-center mb-6">
-              {/* <div className="relative h-40 w-40 sm:h-48 sm:w-48 animate-float">
-                <Image src="/logo.png" alt="Career Masters Global Logo" fill className="object-contain" />
-              </div> */}
-            </div>
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-4">
-              <span className="text-cm-gold">CAREER MASTERS</span> <span className="text-white">Global</span>
+              <span className="text-cm-gold">CAREER MASTERS</span>{" "}
+              <span className="text-white">Global</span>
             </h1>
-            <p className="text-base sm:text-xl md:text-2xl mb-4 sm:mb-8 max-w-3xl mx-auto">YOUR MENTORS OVERSEAS</p>
+            <p className="text-base sm:text-xl md:text-2xl mb-4 sm:mb-8 max-w-3xl mx-auto">
+              YOUR MENTORS OVERSEAS
+            </p>
             <p className="text-base sm:text-lg mb-6 max-w-2xl mx-auto">
               Supporting international students in Singapore, Dubai, Mauritius, and the UK
             </p>
@@ -86,7 +88,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Services */}
+      {/* Services */}
       <section className="py-16 bg-gray-50 globe-pattern">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -94,60 +96,72 @@ export default function Home() {
             <div className="h-1 w-20 bg-gradient-to-r from-cm-red to-cm-gold mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="hover:shadow-lg transition-shadow border-t-4 border-t-cm-red">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="bg-cm-red/10 p-4 rounded-full mb-4 text-cm-red">
-                  <CreditCard className="h-8 w-8" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-cm-red">Forex Exchange</h3>
-                <p className="text-gray-600 mb-4">Hassle-free currency exchange for students studying abroad.</p>
-                <Button asChild variant="link" className="mt-auto text-cm-red">
-                  <Link href="/services#forex">
-                    Learn More <ChevronRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-
+            {/* Pre & Post Arrival Help */}
             <Card className="hover:shadow-lg transition-shadow border-t-4 border-t-cm-gold">
               <CardContent className="p-6 flex flex-col items-center text-center">
                 <div className="bg-cm-gold/10 p-4 rounded-full mb-4 text-cm-gold">
                   <Compass className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-cm-gold">Pre-arrival Help</h3>
-                <p className="text-gray-600 mb-4">Accommodation, packing checklists, and essential guidance.</p>
+                <h3 className="text-xl font-semibold mb-2 text-cm-gold">Pre & Post Arrival Help</h3>
+                <p className="text-gray-600 mb-4">
+                  From packing lists to settling in—we’re here every step of the way.
+                </p>
                 <Button asChild variant="link" className="mt-auto text-cm-gold">
-                  <Link href="/services#pre-arrival">
+                  <Link href="/services#arrival">
                     Learn More <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>
               </CardContent>
             </Card>
 
+            {/* Visa Assistance */}
+            <Card className="hover:shadow-lg transition-shadow border-t-4 border-t-cm-red">
+              <CardContent className="p-6 flex flex-col items-center text-center">
+                <div className="bg-cm-red/10 p-4 rounded-full mb-4 text-cm-red">
+                  <Stamp className="h-8 w-8" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-cm-red">Visa Assistance</h3>
+                <p className="text-gray-600 mb-4">
+                  Expert guidance on documentation, interview prep, and visa processing.
+                </p>
+                <Button asChild variant="link" className="mt-auto text-cm-red">
+                  <Link href="/services#visa">
+                    Learn More <ChevronRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Study Loan Assistance */}
             <Card className="hover:shadow-lg transition-shadow border-t-4 border-t-cm-orange">
               <CardContent className="p-6 flex flex-col items-center text-center">
                 <div className="bg-cm-orange/10 p-4 rounded-full mb-4 text-cm-orange">
-                  <Globe className="h-8 w-8" />
+                  <Banknote className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-cm-orange">Study Tours</h3>
-                <p className="text-gray-600 mb-4">Educational travel experiences in different countries.</p>
+                <h3 className="text-xl font-semibold mb-2 text-cm-orange">Study Loan Assistance</h3>
+                <p className="text-gray-600 mb-4">
+                  Connecting students with the right financial aid options and banks.
+                </p>
                 <Button asChild variant="link" className="mt-auto text-cm-orange">
-                  <Link href="/services#study-tours">
+                  <Link href="/services#loan">
                     Learn More <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>
               </CardContent>
             </Card>
 
+            {/* Study Tours */}
             <Card className="hover:shadow-lg transition-shadow border-t-4 border-t-cm-green">
               <CardContent className="p-6 flex flex-col items-center text-center">
                 <div className="bg-cm-green/10 p-4 rounded-full mb-4 text-cm-green">
-                  <GraduationCap className="h-8 w-8" />
+                  <Globe className="h-8 w-8" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-cm-green">Guardianship</h3>
-                <p className="text-gray-600 mb-4">Support system for students living and studying abroad.</p>
+                <h3 className="text-xl font-semibold mb-2 text-cm-green">Study Tours</h3>
+                <p className="text-gray-600 mb-4">
+                  Transformative educational travel to explore academics & culture.
+                </p>
                 <Button asChild variant="link" className="mt-auto text-cm-green">
-                  <Link href="/services#guardianship">
+                  <Link href="/services#study-tours">
                     Learn More <ChevronRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>
@@ -281,4 +295,3 @@ export default function Home() {
     </div>
   )
 }
-

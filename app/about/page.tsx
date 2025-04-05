@@ -1,4 +1,4 @@
-import Image from "next/image"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircle, GraduationCap, Globe, Users, Award } from "lucide-react"
 
@@ -9,9 +9,6 @@ export default function AboutPage() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
-            <div className="relative h-28 w-28">
-              <Image src="/logo.png" alt="Career Masters Global Logo" fill className="object-contain" />
-            </div>
           </div>
           <h1 className="text-4xl font-bold mb-4">
             <span className="text-cm-gold">About</span> <span className="text-cm-red">Career Masters Global</span>
@@ -23,7 +20,7 @@ export default function AboutPage() {
         </div>
 
         {/* Our Story */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1   mb-16">
           <div>
             <h2 className="text-3xl font-bold text-cm-red mb-6">Our Story</h2>
             <div className="prose max-w-none">
@@ -39,12 +36,6 @@ export default function AboutPage() {
                 Our team consists of education experts, former international students, and local specialists who
                 understand the challenges of studying abroad and are passionate about helping students succeed.
               </p>
-            </div>
-          </div>
-          <div className="flex items-center justify-center">
-            <div className="relative rounded-lg overflow-hidden shadow-xl">
-              <img src="/placeholder.svg?height=400&width=600" alt="Our team" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-r from-cm-red/30 to-cm-gold/30 mix-blend-multiply"></div>
             </div>
           </div>
         </div>

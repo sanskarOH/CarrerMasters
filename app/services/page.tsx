@@ -2,27 +2,24 @@ import Link from "next/link"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { CreditCard, Compass, Globe, FileText, ExternalLink, GraduationCap, Plane } from "lucide-react"
+import {
+  Compass,
+  Globe,
+  FileText,
+  ExternalLink,
+  Plane,
+  Banknote,
+} from "lucide-react"
 
 const services = [
   {
-    id: "forex",
-    name: "Forex Exchange",
-    icon: <CreditCard className="h-6 w-6" />,
-    color: "cm-red",
-    description: "Hassle-free currency exchange for students studying abroad.",
-    details:
-      "Our forex exchange service helps students convert their home currency to the currency of their study destination at competitive rates. We handle all the paperwork and ensure that students have access to funds when they arrive in their new country.",
-    countries: ["Singapore", "United Kingdom"],
-  },
-  {
     id: "pre-arrival",
-    name: "Pre-arrival Help",
+    name: "Pre & Post Arrival Help",
     icon: <Compass className="h-6 w-6" />,
     color: "cm-gold",
-    description: "Accommodation, packing checklists, and essential guidance.",
+    description: "Accommodation, airport pickup, packing, and arrival guidance.",
     details:
-      "Our pre-arrival support includes assistance with finding suitable accommodation, providing comprehensive packing checklists tailored to your destination, and guidance on what to expect when you arrive. We ensure you're fully prepared for your journey.",
+      "From finding housing and packing to airport pickup and settling in, we ensure you're ready before you fly and supported when you land.",
     countries: ["Singapore", "Dubai", "Mauritius", "United Kingdom"],
   },
   {
@@ -32,19 +29,9 @@ const services = [
     color: "cm-orange",
     description: "Educational travel experiences in different countries.",
     details:
-      "Our study tours offer students the opportunity to explore educational institutions, cultural landmarks, and industry sites in their destination country. These tours are designed to enhance learning experiences and provide valuable insights into local education systems and cultures.",
+      "Explore campuses, culture, and career paths abroad. Our immersive study tours offer educational exposure in leading destinations.",
     countries: ["Singapore", "Dubai", "United Kingdom"],
     externalLink: true,
-  },
-  {
-    id: "guardianship",
-    name: "Guardianship & Assistance",
-    icon: <GraduationCap className="h-6 w-6" />,
-    color: "cm-green",
-    description: "Support system for students living abroad.",
-    details:
-      "Our guardianship service provides a local point of contact for young students studying abroad. Guardians attend parent-teacher meetings, help with accommodation issues, and provide general welfare support to ensure students' wellbeing throughout their studies.",
-    countries: ["Singapore", "Mauritius", "United Kingdom"],
   },
   {
     id: "visa",
@@ -53,8 +40,18 @@ const services = [
     color: "cm-red",
     description: "Application guidance and documentation help.",
     details:
-      "Our visa assistance service helps students navigate the complex visa application process. We provide guidance on required documentation, review applications, and offer support throughout the process to maximize the chances of a successful visa application.",
+      "We help you navigate visa requirements, gather documents, and submit strong applications for your study destination.",
     countries: ["Singapore", "Dubai", "Mauritius", "United Kingdom"],
+  },
+  {
+    id: "study-loan",
+    name: "Study Loan Assistance",
+    icon: <Banknote className="h-6 w-6" />,
+    color: "cm-green",
+    description: "Helping you finance your education abroad.",
+    details:
+      "Get support with finding the right study loan options, understanding terms, and completing applications with ease.",
+    countries: ["Singapore", "Mauritius", "United Kingdom"],
   },
   {
     id: "career-counseling",
@@ -63,7 +60,7 @@ const services = [
     color: "cm-gold",
     description: "Expert guidance for your global career path.",
     details:
-      "Our career counseling service helps students identify their strengths, interests, and goals to make informed decisions about their education and career paths. We provide personalized advice on course selection, university choices, and future career opportunities.",
+      "Plan your future with clarity. We offer advice on university choices, career options, and long-term goals tailored to your strengths.",
     countries: ["Singapore", "Dubai", "Mauritius", "United Kingdom"],
   },
 ]
@@ -73,11 +70,6 @@ export default function ServicesPage() {
     <div className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="flex justify-center mb-6">
-            <div className="relative h-20 w-20">
-              <Image src="/logo.png" alt="Career Masters Global Logo" fill className="object-contain" />
-            </div>
-          </div>
           <h1 className="text-4xl font-bold mb-4">
             <span className="text-cm-gold">Our</span> <span className="text-cm-red">Services</span>
           </h1>
@@ -192,4 +184,3 @@ export default function ServicesPage() {
     </div>
   )
 }
-

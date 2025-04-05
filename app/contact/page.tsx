@@ -455,7 +455,7 @@ export default function ContactPage() {
                         className="w-full min-h-[150px]"
                       />
                     </div>
-                    <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={isSubmitting}>
+                    <Button type="submit" className="w-full bg-red-600 hover:bg-red-700" disabled={isSubmitting}>
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
@@ -470,10 +470,10 @@ export default function ContactPage() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Information</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Card>
-                  <CardContent className="p-6">
+                  <CardContent className="p-5">
                     <div className="flex items-start">
-                      <div className="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4 flex-shrink-0">
-                        <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      <div className="bg-yellow-100 dark:bg-blue-red p-1 rounded-full mr-4 flex-shrink-0">
+                        <Mail className="h-6 w-6 text-red-600 dark:text-red-400" />
                       </div>
                       <div className="overflow-hidden">
                         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">Email Us</h3>
@@ -485,14 +485,14 @@ export default function ContactPage() {
                   </CardContent>
                 </Card>
                 <Card>
-                  <CardContent className="p-6">
+                  <CardContent className="p-5">
                     <div className="flex items-start">
-                      <div className="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
-                        <PhoneIcon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                      <div className="bg-yellow-100 dark:bg-red-900 p-3 rounded-full mr-4">
+                        <PhoneIcon className="h-6 w-6 text-red-600 dark:text-red-400" />
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">Call Us</h3>
-                        <p className="text-gray-600 dark:text-gray-300">+91 89102 81714</p>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm">+91 89102 81714</p>
                       </div>
                     </div>
                   </CardContent>
@@ -509,12 +509,18 @@ export default function ContactPage() {
                     address: "119 Potong pasir , Ave 1, Singapore 350119",
                     hours: "Mon-Fri: 9:00 AM - 6:00 PM",
                   },
+                  {
+                    country: "India",
+                    address: "6E Elgin Road, Near Bhawanipur College, Kolkata, West Bengal - 700020",
+                    hours: "Mon-Fri: 09:00 AM - 6:00 PM"
+                  }
+                  
                 ].map((office) => (
                   <Card key={office.country}>
                     <CardContent className="p-6">
                       <div className="flex items-start">
-                        <div className="bg-blue-100 dark:bg-blue-900 p-3 rounded-full mr-4">
-                          <MapPin className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                        <div className="bg-yellow-100 dark:bg-red-900 p-3 rounded-full mr-4">
+                          <MapPin className="h-6 w-6 text-red-600 dark:text-yellow-400" />
                         </div>
                         <div>
                           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{office.country}</h3>
@@ -529,17 +535,6 @@ export default function ContactPage() {
                   </Card>
                 ))}
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Map Section */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Find Us on the Map</h2>
-          <div className="bg-gray-200 dark:bg-gray-700 h-96 rounded-lg overflow-hidden">
-            {/* Placeholder for map */}
-            <div className="w-full h-full flex items-center justify-center">
-              <p className="text-gray-600 dark:text-gray-300">Interactive map would be displayed here</p>
             </div>
           </div>
         </div>

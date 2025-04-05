@@ -159,21 +159,21 @@ const Footer = () => {
             <address className="not-italic text-sm space-y-3">
               <p className="flex items-start">
                 <Mail className="mr-2 h-5 w-5 flex-shrink-0 mt-0.5" />
-                <span>info@careermastersglobal.com</span>
+                <span>connect@careermasters.sg</span>
               </p>
               <p className="flex items-start">
                 <Phone className="mr-2 h-5 w-5 flex-shrink-0 mt-0.5" />
-                <span>+1 (123) 456-7890</span>
+                <span>+91 89102 81714</span>
               </p>
               <p className="flex items-start">
                 <MapPin className="mr-2 h-5 w-5 flex-shrink-0 mt-0.5" />
-                <span>123 Education Street, Global City, 10001</span>
+                <span>119 Potong pasir , Ave 1, Singapore 350119</span>
               </p>
             </address>
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-white/20 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Career Masters Global. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Career Masters PTE. All rights reserved.</p>
         </div>
       </div>
     </footer>
