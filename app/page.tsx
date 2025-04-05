@@ -54,13 +54,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Animated Plane */}
-        <div className="absolute top-1/4 left-0 right-0 z-20 pointer-events-none">
-          <div className="animate-plane-fly">
-            <Plane className="text-cm-red h-8 w-8 sm:h-12 sm:w-12" />
-          </div>
-        </div>
-
         {/* Hero Content */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="text-center text-white px-4">
