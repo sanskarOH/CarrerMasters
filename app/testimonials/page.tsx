@@ -109,46 +109,6 @@ export default function TestimonialsPage() {
           ))}
         </div>
 
-        {/* Success Stories */}
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Success Stories</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "From Singapore to Global Career",
-                image: "/placeholder.svg?height=300&width=500",
-                story:
-                  "After completing her studies in Singapore with our support, Sarah landed a job at a multinational company and now travels the world as part of her career.",
-              },
-              {
-                title: "Research Breakthrough in the UK",
-                image: "/placeholder.svg?height=300&width=500",
-                story:
-                  "With our guardianship services supporting him throughout his PhD, Mohammed was able to focus on his research, leading to a breakthrough in renewable energy technology.",
-              },
-              {
-                title: "Entrepreneurial Success in Dubai",
-                image: "/placeholder.svg?height=300&width=500",
-                story:
-                  "Priya's education in Dubai, facilitated by our services, gave her the knowledge and connections to launch her own successful tech startup in the region.",
-              },
-            ].map((story, index) => (
-              <Card key={index} className="overflow-hidden">
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={story.image || "/placeholder.svg"}
-                    alt={story.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{story.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{story.story}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   )
