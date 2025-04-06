@@ -1,6 +1,5 @@
 "use client"
-
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -13,7 +12,8 @@ import {
   GraduationCap,
   Plane,
   Stamp,
-  Banknote
+  Banknote,
+  ChevronLeft
 } from "lucide-react"
 
 const countries = [
@@ -23,9 +23,39 @@ const countries = [
   { name: "United Kingdom", video: "/uk.mp4?height=1080&width=1920", image: "/london.jpg" }
 ]
 
+const testimonials = [
+  {
+    id: 1,
+    name: "Sarah Chen",
+    country: "Singapore",
+    text: "Global Student Services made my transition to studying in Singapore seamless. Their pre-arrival support and guardianship services gave my parents peace of mind.",
+    program: "Business Administration",
+  },
+  {
+    id: 2,
+    name: "Mohammed Al-Farsi",
+    country: "Dubai",
+    text: "The study tour organized by Global Student Services was eye-opening. It helped me understand the education system in Dubai before making my decision to study there.",
+    program: "Computer Science",
+  },
+  {
+    id: 3,
+    name: "Priya Sharma",
+    country: "United Kingdom",
+    text: "Their visa assistance service was invaluable. I wouldn't have been able to navigate the complex UK visa process without their expert guidance.",
+    program: "Medicine",
+  },
+]
+
 export default function Home() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  const [currentTestimonialGroup, setCurrentTestimonialGroup] = useState(0)
+  const testimonialsPerSlide = 3
+  const totalGroups = Math.ceil(testimonials.length / testimonialsPerSlide)
+  const carouselRef = useRef(null)
+  const [isAnimating, setIsAnimating] = useState(false)
 
+  // Auto-rotate background videos
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % countries.length)
@@ -33,8 +63,105 @@ export default function Home() {
     return () => clearInterval(interval)
   }, [])
 
+  // Auto-slide testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isAnimating) {
+        nextTestimonialGroup()
+      }
+    }, 8000)
+    return () => clearInterval(interval)
+  }, [currentTestimonialGroup, isAnimating])
+
+  const nextTestimonialGroup = () => {
+    if (isAnimating) return
+    setIsAnimating(true)
+    
+    setCurrentTestimonialGroup((prev) => {
+      const nextGroup = (prev + 1) % totalGroups
+      return nextGroup
+    })
+    
+    setTimeout(() => {
+      setIsAnimating(false)
+    }, 600)
+  }
+
+  const prevTestimonialGroup = () => {
+    if (isAnimating) return
+    setIsAnimating(true)
+    
+    setCurrentTestimonialGroup((prev) => {
+      const prevGroup = prev === 0 ? totalGroups - 1 : prev - 1
+      return prevGroup
+    })
+    
+    setTimeout(() => {
+      setIsAnimating(false)
+    }, 600)
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
+      <style jsx global>{`
+        @keyframes slideIn {
+          from {
+            transform: translateX(100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+        
+        @keyframes slideOut {
+          from {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          to {
+            transform: translateX(-100%);
+            opacity: 0;
+          }
+        }
+        
+        .carousel-container {
+          position: relative;
+          overflow: hidden;
+          width: 100%;
+        }
+        
+        .carousel-slide {
+          display: flex;
+          width: 100%;
+        }
+        
+        .slide-in {
+          animation: slideIn 0.6s forwards;
+        }
+        
+        .slide-out {
+          animation: slideOut 0.6s forwards;
+        }
+        
+        .carousel-indicator {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: #d1d5db;
+          margin: 0 4px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        
+        .carousel-indicator.active {
+          width: 24px;
+          border-radius: 4px;
+          background-image: linear-gradient(to right, #ef4444, #f59e0b);
+        }
+      `}</style>
+
       {/* Hero Section */}
       <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
@@ -104,7 +231,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-cm-gold">Pre & Post Arrival Help</h3>
                 <p className="text-gray-600 mb-4">
-                  From packing lists to settling in—we’re here every step of the way.
+                  From packing lists to settling in—we're here every step of the way.
                 </p>
                 <Button asChild variant="link" className="mt-auto text-cm-gold">
                   <Link href="/services#arrival">
@@ -220,6 +347,118 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      {/* Testimonials Section - Now with Carousel */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 gradient-text inline-block">Student Testimonials</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-cm-red to-cm-gold mx-auto"></div>
+          </div>
+
+          <div className="carousel-container">
+            <div className="absolute top-1/2 left-4 z-10 transform -translate-y-1/2">
+              <button 
+                onClick={prevTestimonialGroup}
+                className="bg-white p-2 rounded-full shadow-lg text-cm-red hover:bg-cm-red hover:text-white transition-colors"
+                disabled={isAnimating}
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+            </div>
+            
+            <div className="absolute top-1/2 right-4 z-10 transform -translate-y-1/2">
+              <button 
+                onClick={nextTestimonialGroup}
+                className="bg-white p-2 rounded-full shadow-lg text-cm-red hover:bg-cm-red hover:text-white transition-colors"
+                disabled={isAnimating}
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+            </div>
+            
+            <div 
+              ref={carouselRef}
+              className="overflow-hidden"
+            >
+              {Array.from({ length: totalGroups }).map((_, groupIndex) => (
+                <div
+                  key={groupIndex}
+                  className={`carousel-slide ${
+                    groupIndex === currentTestimonialGroup ? "slide-in" : "hidden"
+                  }`}
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+                    {testimonials
+                      .slice(
+                        groupIndex * testimonialsPerSlide,
+                        (groupIndex + 1) * testimonialsPerSlide
+                      )
+                      .map((testimonial) => (
+                        <div
+                          key={testimonial.id}
+                          className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl"
+                        >
+                          <div
+                            className={`h-2 ${
+                              testimonial.country === "Singapore"
+                                ? "bg-cm-gold"
+                                : testimonial.country === "Dubai"
+                                  ? "bg-cm-red"
+                                  : testimonial.country === "Mauritius"
+                                    ? "bg-cm-orange"
+                                    : "bg-cm-green"
+                            }`}
+                          ></div>
+                          <div className="p-6">
+                            <div className="flex items-center mb-4">
+                              <div>
+                                <h3 className="font-semibold text-lg">{testimonial.name}</h3>
+                                <div className="flex items-center text-sm text-gray-600">
+                                  <MapPin className="h-3 w-3 mr-1" />
+                                  {testimonial.country}
+                                </div>
+                              </div>
+                            </div>
+                            <p className="text-gray-700 italic mb-4">"{testimonial.text}"</p>
+                            <div className="pt-4 border-t border-gray-100 text-sm text-gray-500">
+                              <span className="font-medium">Program:</span> {testimonial.program}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="flex justify-center mt-8">
+              {Array.from({ length: totalGroups }).map((_, index) => (
+                <button
+                  key={index}
+                  className={`carousel-indicator ${
+                    index === currentTestimonialGroup ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    if (!isAnimating) {
+                      setIsAnimating(true);
+                      setCurrentTestimonialGroup(index);
+                      setTimeout(() => setIsAnimating(false), 600);
+                    }
+                  }}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button asChild size="lg" className="bg-cm-red hover:bg-cm-red/90 text-white">
+              <Link href="/testimonials">View All Testimonials</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
 
       {/* Countries Section */}
       <section className="py-16">
@@ -232,13 +471,15 @@ export default function Home() {
             {countries.map((country) => (
               <Link key={country.name} href={`/countries/${country.name.toLowerCase()}`}>
                 <div className="relative h-64 rounded-lg overflow-hidden group cursor-pointer shadow-lg">
-                  <Image
-                    src={country.image }
-                    alt={country.name}
-                    width={400} 
-                    height={256}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  {
+                    <Image 
+                    src={country.image}
+                    alt={`${country.name} study destination`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
+                  }
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
                     <div className="p-6 text-white">
                       <h3 className="text-xl font-semibold flex items-center">
