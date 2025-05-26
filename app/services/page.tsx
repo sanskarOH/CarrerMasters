@@ -13,7 +13,7 @@ const services = [
     longDescription:
       "Our study tours provide a comprehensive preview of academic life at leading institutions. Visit multiple universities, meet faculty and current students, tour campus facilities, and get a feel for the local culture and environment. These tours are designed to help you make informed decisions about your educational future.",
     icon: Plane,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://images.pexels.com/photos/2881370/pexels-photo-2881370.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
   },
   {
     id: "visa",
@@ -22,7 +22,7 @@ const services = [
     longDescription:
       "Our visa specialists have extensive experience with student visa applications for all our destination countries. We provide document verification, application review, interview preparation, and follow-up support to ensure the highest chance of approval. Our detailed knowledge of country-specific requirements helps streamline this critical process.",
     icon: FileCheck,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://images.pexels.com/photos/346798/pexels-photo-346798.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
   },
   {
     id: "accommodation",
@@ -31,7 +31,7 @@ const services = [
     longDescription:
       "Securing comfortable, convenient, and affordable accommodation is essential for a successful study abroad experience. We help you navigate on-campus housing applications, off-campus rental markets, homestay options, and temporary accommodation upon arrival. Our local knowledge ensures you find housing that meets your needs and budget.",
     icon: Home,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
   },
   {
     id: "university-placement",
@@ -41,7 +41,7 @@ const services = [
     longDescription:
       "Our university placement service provides end-to-end support for your application journey. We help you identify institutions and programs aligned with your academic background, career aspirations, and personal preferences. Our team assists with application preparation, personal statement development, and communication with admissions offices to maximize your chances of acceptance.",
     icon: GraduationCap,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://images.pexels.com/photos/1181243/pexels-photo-1181243.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
   },
   {
     id: "guardianship",
@@ -51,7 +51,7 @@ const services = [
     longDescription:
       "For students under 18, we arrange qualified local guardians who provide support, attend parent-teacher meetings, assist with accommodation during holidays, and serve as emergency contacts. Our guardians are carefully selected, experienced professionals who ensure the safety and well-being of younger students while they adjust to life abroad.",
     icon: ShieldCheck,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://images.pexels.com/photos/928199/pexels-photo-928199.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
   },
   {
     id: "pre-departure",
@@ -61,7 +61,7 @@ const services = [
     longDescription:
       "Our pre-departure support ensures you're fully prepared for your international education experience. We provide cultural orientation sessions, packing guidance, travel arrangements assistance, health and safety information, and practical advice on adapting to your new environment. This service helps minimize culture shock and facilitates a smooth transition to life abroad.",
     icon: Globe,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://images.pexels.com/photos/32213244/pexels-photo-32213244.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
   },
   {
     id: "post-arrival",
@@ -71,7 +71,7 @@ const services = [
     longDescription:
       "Our support continues after you arrive at your destination. We assist with airport pickup, initial accommodation, local transportation orientation, mobile phone setup, bank account opening, and other essential settling-in tasks. Our local representatives provide guidance during your first weeks to ensure a comfortable adjustment to your new environment.",
     icon: HeartHandshake,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://images.pexels.com/photos/1719490/pexels-photo-1719490.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
   },
   {
     id: "study-loan",
@@ -80,7 +80,7 @@ const services = [
     longDescription:
       "Our study loan assistance helps you secure funding for your international education. We work with leading financial institutions to find the best education loan options, assist with documentation, guide you through the application process, and provide ongoing support until loan disbursement. Our expertise ensures you get competitive interest rates and favorable terms.",
     icon: CreditCard,
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
   },
 ]
 

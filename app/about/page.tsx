@@ -9,7 +9,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">About CareerMasters</h1>
-            <p className="text-xl">Connecting students to global opportunities since 2010</p>
+            <p className="text-xl">Connecting students to global opportunities </p>
           </div>
         </div>
       </section>
@@ -36,7 +36,7 @@ export default function AboutPage() {
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
               <Image
-                src="/placeholder.svg?height=800&width=600"
+                src="https://images.pexels.com/photos/5956458/pexels-photo-5956458.jpeg?auto=compress&cs=tinysrgb&w=600&h=800"
                 alt="CareerMasters Team"
                 fill
                 className="object-cover"

@@ -96,7 +96,7 @@ const countryData = {
   },
   dubai: {
     name: "Dubai",
-    hero: "/placeholder.svg?height=600&width=1200",
+    hero: "https://images.pexels.com/photos/3763190/pexels-photo-3763190.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
     about: {
       title: "Welcome to Dubai",
       description:
@@ -728,7 +728,7 @@ export default function CountryPage({ params }: { params: { country: string } })
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-blue-700 rounded-full group transition-all duration-300 hover:pr-10"
+                className="bg-white text-blue-600 hover:bg-gray-100 rounded-full group transition-all duration-300 hover:pr-10"
                 asChild
               >
                 <Link href="/services">

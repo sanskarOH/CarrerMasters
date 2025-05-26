@@ -132,7 +132,7 @@ const countries = [
   { 
     name: "Singapore", 
     video: "https://videos.pexels.com/video-files/4865448/4865448-hd_1920_1080_30fps.mp4", // Singapore cityscape
-    image: "https://images.pexels.com/photos/2058959/pexels-photo-2058959.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
+    image: "https://images.pexels.com/photos/5406959/pexels-photo-5406959.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
   },
   { 
     name: "Dubai", 
@@ -557,7 +557,7 @@ export default function Home() {
                   </div>
                   <div className="lg:w-1/2 order-1 lg:order-2 relative h-64 lg:h-auto overflow-hidden">
                     <Image
-                      src="https://images.pexels.com/photos/1181533/pexels-photo-1181533.jpeg?auto=compress&cs=tinysrgb&w=600&h=400"
+                      src="https://images.pexels.com/photos/32213244/pexels-photo-32213244.jpeg?auto=compress&cs=tinysrgb&w=600&h=400"
                       alt="Pre-Departure Support"
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
@@ -589,7 +589,7 @@ export default function Home() {
                   </div>
                   <div className="lg:w-1/2 order-1 lg:order-2 relative h-64 lg:h-auto overflow-hidden">
                     <Image
-                      src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg?auto=compress&cs=tinysrgb&w=600&h=400"
+                      src="https://images.pexels.com/photos/1719490/pexels-photo-1719490.jpeg?auto=compress&cs=tinysrgb&w=600&h=400"
                       alt="Post-Arrival Assistance"
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
@@ -688,7 +688,7 @@ export default function Home() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-blue-700 rounded-full group transition-all duration-300 hover:pr-10"
+                className="bg-white text-blue-600 hover:bg-gray-100 rounded-full group transition-all duration-300 hover:pr-10"
                 asChild
               >
                 <Link href="/countries">
