@@ -239,6 +239,7 @@ export default function ContactPage() {
         }
       }
        const accessKey = (process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '').trim();
+       console.log(accessKey)
 
       // Prepare form data for Web3Forms with proper hCaptcha integration
       const formData = new FormData();
