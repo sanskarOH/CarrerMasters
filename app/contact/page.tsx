@@ -383,11 +383,11 @@ export default function ContactPage() {
                             Phone Number *
                           </label>
                           <div className="flex">
-                            <select
-                              className="rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 max-w-[90px]"
-                              value={formState.countryCode}
-                              onChange={(e) => handleSelectChange("countryCode", e.target.value)}
-                            >
+                            <select 
+  className="rounded-l-md border-l border-t border-b border-gray-300 bg-gray-50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 max-w-[90px]"
+  value={formState.countryCode}
+  onChange={(e) => handleSelectChange("countryCode", e.target.value)}
+>
                               <option value="+355">🇦🇱 Albania +355</option>
             <option value="+213">+213 🇩🇿 Algeria</option>
 <option value="+1684">+1684 🇦🇸 American Samoa</option>
