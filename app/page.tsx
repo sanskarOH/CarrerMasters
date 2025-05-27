@@ -137,12 +137,12 @@ const countries = [
   { 
     name: "Dubai", 
     video: "https://videos.pexels.com/video-files/4410402/4410402-hd_1920_1080_30fps.mp4", // Dubai cityscape
-    image: "https://images.pexels.com/photos/1413412/pexels-photo-1413412.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
+    image: "https://images.pexels.com/photos/3787839/pexels-photo-3787839.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
   },
   { 
     name: "Mauritius", 
     video: "https://videos.pexels.com/video-files/1409899/1409899-hd_1920_1080_25fps.mp4", // Beach/Ocean
-    image: "https://images.pexels.com/photos/1320686/pexels-photo-1320686.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
+    image: "https://images.pexels.com/photos/32256720/pexels-photo-32256720.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
   },
   { 
     name: "UnitedKingdom", 
@@ -152,7 +152,7 @@ const countries = [
   { 
     name: "Europe", 
     video: "https://videos.pexels.com/video-files/4979711/4979711-hd_1920_1080_30fps.mp4", // European city
-    image: "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
+    image: "https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
   }
 ];
 

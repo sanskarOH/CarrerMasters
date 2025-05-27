@@ -197,14 +197,14 @@ export default function TestimonialsPage() {
               >
                 {visibleTestimonials.map((testimonial) => (
                   <div key={testimonial.id} className="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div className="relative h-64 w-full">
+                    {/* <div className="relative h-64 w-full">
                       <Image
                         src={testimonial.image || "/placeholder.svg"}
                         alt={testimonial.name}
                         fill
                         className="object-cover"
                       />
-                    </div>
+                    </div> */}
                     <div className="p-6">
                       <div className="mb-4">
                         <Quote className="h-8 w-8 text-blue-600" />
