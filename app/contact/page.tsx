@@ -377,7 +377,7 @@ export default function ContactPage() {
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 min-w-[80px]">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 ">
                         <div>
                           <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1 ">
                             Phone Number *
