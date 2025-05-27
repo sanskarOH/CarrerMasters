@@ -238,10 +238,11 @@ export default function ContactPage() {
           console.log("hCaptcha not completed, but proceeding for potential activation");
         }
       }
+       const accessKey = (process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '').trim();
 
       // Prepare form data for Web3Forms with proper hCaptcha integration
       const formData = new FormData();
-      formData.append('access_key', process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '');
+      formData.append('access_key', accessKey);
       formData.append('name', formState.name);
       formData.append('email', formState.email);
       formData.append('phone', `${formState.countryCode} ${formState.phone}`);
