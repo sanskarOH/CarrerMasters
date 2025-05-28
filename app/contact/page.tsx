@@ -345,7 +345,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="text-xl font-bold mb-1 text-gray-900">Visit Us</h3>
                       <p className="text-gray-600">119 Potong pasir, Ave 1, Singapore 350119</p>
-                      <p className="text-gray-600">6E Elgin Road, Near Bhawanipur College, Kolkata, West Bengal-700020, India</p>
+                      {/* <p className="text-gray-600">6E Elgin Road, Near Bhawanipur College, Kolkata, West Bengal-700020, India</p> */}
                     </div>
                   </div>
 

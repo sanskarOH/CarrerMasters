@@ -110,10 +110,10 @@ export default function Footer() {
                 <MapPin className="h-5 w-5 mr-2 mt-0.5 text-blue-400" />
                 <span className="text-gray-300">119 Potong pasir, Ave 1, Singapore 350119</span>
               </li>
-              <li className="flex items-start">
+              {/* <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 mt-0.5 text-blue-400" />
                 <span className="text-gray-300">6E Elgin Road, Near Bhawanipur College,  Kolkata, West Bengal-700020, India </span>
-              </li>
+              </li> */}
               <li className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-blue-400" />
                 <span className="text-gray-300">Harry: +91 89102 81714</span>

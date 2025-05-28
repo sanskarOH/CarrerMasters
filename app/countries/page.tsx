@@ -6,7 +6,7 @@ const countries = [
   {
     id: 1,
     name: "Singapore",
-    image: "https://images.pexels.com/photos/5406959/pexels-photo-5406959.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
+    image: "https://images.pexels.com/photos/12657483/pexels-photo-12657483.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
     description: "A global education hub with world-class universities and a vibrant multicultural environment.",
     highlights: [
       "Home to top-ranked universities like NUS and NTU",

@@ -21,12 +21,12 @@ import ScrollReveal from "@/components/scroll-reveal"
 const countryData = {
   singapore: {
     name: "Singapore",
-    hero: "https://images.pexels.com/photos/5406959/pexels-photo-5406959.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
+    hero: "https://images.pexels.com/photos/777059/pexels-photo-777059.jpeg?auto=compress&cs=tinysrgb&w=1920&h=800",
     about: {
       title: "Welcome to Singapore",
       description:
         "Where tradition meets tech, and education fuels ambition. A city that's not just a place on the map, but a blueprint for the future.\n\nFrom sky-kissing architecture to spotless streets, Singapore is a cultural kaleidoscope with a brain wired for innovation. Think of it as Asia's Silicon Valley wrapped in luxury, order, and opportunity.\n\nHere, you're not just studying abroad—you're stepping into a world that runs like clockwork, dreams like a startup, and delivers like a Fortune 500.",
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/1559821/pexels-photo-1559821.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     whyChoose: {
       title: "Why Singapore as a Study Destination",
@@ -54,7 +54,7 @@ const countryData = {
         },
       ],
       footer: "Singapore doesn't just educate. It accelerates.",
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/2582932/pexels-photo-2582932.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     benefits: {
       title: "Benefits & Opportunities in Singapore",
@@ -66,7 +66,7 @@ const countryData = {
         "Global Exposure: Strategic location = Easy access to Asia-Pacific hubs.",
         "Life that Works: World-class healthcare, efficient public transport, and food that deserves a Netflix series.",
       ],
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/1036936/pexels-photo-1036936.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     services: [
       {
@@ -96,12 +96,12 @@ const countryData = {
   },
   dubai: {
     name: "Dubai",
-    hero: "https://images.pexels.com/photos/3763190/pexels-photo-3763190.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
+    hero: "https://images.pexels.com/photos/3787839/pexels-photo-3787839.jpeg?auto=compress&cs=tinysrgb&w=1920&h=800",
     about: {
       title: "Welcome to Dubai",
       description:
         "Where ambition wears skyscrapers, and opportunity is built on golden sand.\n\nA city where Lamborghinis wait at red lights, the future lives in the present, and students dream in high definition. Dubai isn't just rich in oil—it's rich in vision, innovation, and education that matches global benchmarks.\n\nWith a skyline that competes with imagination and a lifestyle straight out of a luxury magazine, Dubai redefines what it means to study abroad.",
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/618079/pexels-photo-618079.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     whyChoose: {
       title: "Why Dubai as a Study Destination",
@@ -129,7 +129,7 @@ const countryData = {
         },
       ],
       footer: "Dubai is more than a city—it's a launchpad for bold futures.",
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/1470405/pexels-photo-1470405.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     benefits: {
       title: "Benefits & Opportunities in Dubai",
@@ -141,7 +141,7 @@ const countryData = {
         "Lifestyle Goals: Safety, nightlife, beaches, culture, luxury—all in one weekend.",
         "Global Networking: Build contacts in one of the world's busiest business centers.",
       ],
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/2089696/pexels-photo-2089696.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     services: [
       {
@@ -171,12 +171,12 @@ const countryData = {
   },
   mauritius: {
     name: "Mauritius",
-    hero: "/placeholder.svg?height=600&width=1200",
+    hero: "https://images.pexels.com/photos/3048196/pexels-photo-3048196.jpeg?auto=compress&cs=tinysrgb&w=1920&h=800",
     about: {
       title: "Welcome to Mauritius",
       description:
         "An island where textbooks meet turquoise, and education happens between lectures and lagoons.\n\nOften mistaken for just a honeymoon spot, Mauritius is secretly one of the most peaceful, affordable, and fast-growing education hubs in the Indian Ocean. French charm, British academics, and African warmth—it's a rare mix that students fall in love with.\n\nThis isn't just an island escape. It's a quiet revolution in international education.",
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/1591375/pexels-photo-1591375.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     whyChoose: {
       title: "Why Mauritius as a Study Destination",
@@ -204,7 +204,7 @@ const countryData = {
         },
       ],
       footer: "Mauritius: Where your education comes with a view.",
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/2486168/pexels-photo-2486168.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     benefits: {
       title: "Benefits & Opportunities in Mauritius",
@@ -216,7 +216,7 @@ const countryData = {
         "Quality of Life: Affordable luxury living that would cost 3x more elsewhere.",
         "Post-Study Options: Opportunities to stay and work after graduation in key sectors.",
       ],
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     services: [
       {
@@ -243,12 +243,12 @@ const countryData = {
   },
   uk: {
     name: "United Kingdom",
-    hero: "/placeholder.svg?height=600&width=1200",
+    hero: "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1920&h=800",
     about: {
       title: "Welcome to the United Kingdom",
       description:
         "Step into the United Kingdom—where history lectures are held in castles and coffee breaks happen in cities older than some countries.\n\nFrom the cobbled lanes of Oxford to the innovation hubs of London, the UK blends academic prestige with modern global energy. This isn't just the land of Shakespeare and The Beatles—it's where minds are molded into global leaders.\n\nIn the UK, you're not just earning a degree. You're wearing a legacy.",
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/220769/pexels-photo-220769.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     whyChoose: {
       title: "Why UK as a Study Destination",
@@ -276,7 +276,7 @@ const countryData = {
         },
       ],
       footer: "In the UK, your education doesn't just shape your career—it shapes your story.",
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     benefits: {
       title: "Benefits & Opportunities in the UK",
@@ -288,7 +288,7 @@ const countryData = {
         "Global Job Access: UK degrees are your passport to careers worldwide.",
         "Live the British Life: Pubs, parks, poetry slams, Premier League—culture lives on every corner.",
       ],
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     services: [
       {
@@ -315,12 +315,12 @@ const countryData = {
   },
   europe: {
     name: "Europe",
-    hero: "/placeholder.svg?height=600&width=1200",
+    hero: "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1920&h=800",
     about: {
       title: "Welcome to Europe",
       description:
         "Step into Europe—a continent where education was perfected centuries ago and is reinvented every day.\n\nFrom the innovation hubs of Germany to the artistic streets of France, Europe offers a mosaic of educational experiences. This is where tradition meets innovation, where history and future collide in the most beautiful way.\n\nIn Europe, education isn't just about what you learn—it's about who you become.",
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/2363/france-landmark-lights-night.jpg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     whyChoose: {
       title: "Why Europe as a Study Destination",
@@ -352,7 +352,7 @@ const countryData = {
         },
       ],
       footer: "Europe doesn't just educate you. It transforms you.",
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/1462935/pexels-photo-1462935.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     benefits: {
       title: "Benefits & Opportunities in Europe",
@@ -364,7 +364,7 @@ const countryData = {
         "Historical and Cultural Richness: Study surrounded by centuries of history, art, architecture, and cultural heritage.",
         "International Networks: Build connections across multiple countries and cultures in a truly global environment.",
       ],
-      image: "/placeholder.svg?height=500&width=600",
+      image: "https://images.pexels.com/photos/2901209/pexels-photo-2901209.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     services: [
       {

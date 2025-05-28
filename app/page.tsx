@@ -131,27 +131,27 @@ function VideoCarousel({ countries }: VideoCarouselProps) {
 const countries = [
   { 
     name: "Singapore", 
-    video: "https://videos.pexels.com/video-files/4865448/4865448-hd_1920_1080_30fps.mp4", // Singapore cityscape
-    image: "https://images.pexels.com/photos/5406959/pexels-photo-5406959.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
+    video: "https://cdn.pixabay.com/video/2024/12/05/245011_large.mp4", // Singapore cityscape
+    image: "https://images.pexels.com/photos/12657483/pexels-photo-12657483.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
   },
   { 
     name: "Dubai", 
-    video: "https://videos.pexels.com/video-files/4410402/4410402-hd_1920_1080_30fps.mp4", // Dubai cityscape
+    video: "https://videos.pexels.com/video-files/7168646/7168646-hd_1920_1080_25fps.mp4",
     image: "https://images.pexels.com/photos/3787839/pexels-photo-3787839.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
   },
   { 
     name: "Mauritius", 
-    video: "https://videos.pexels.com/video-files/1409899/1409899-hd_1920_1080_25fps.mp4", // Beach/Ocean
+    video: "https://videos.pexels.com/video-files/1409899/1409899-hd_1920_1080_25fps.mp4", 
     image: "https://images.pexels.com/photos/32256720/pexels-photo-32256720.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
   },
   { 
     name: "UnitedKingdom", 
-    video: "https://videos.pexels.com/video-files/3206893/3206893-hd_1920_1080_30fps.mp4", // European city
+    video: "https://videos.pexels.com/video-files/2880734/2880734-hd_1920_1080_24fps.mp4", 
     image: "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
   },
   { 
     name: "Europe", 
-    video: "https://videos.pexels.com/video-files/4979711/4979711-hd_1920_1080_30fps.mp4", // European city
+    video: "https://videos.pexels.com/video-files/4272751/4272751-hd_1920_1080_30fps.mp4", 
     image: "https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080" 
   }
 ];
