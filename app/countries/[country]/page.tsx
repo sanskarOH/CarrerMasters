@@ -60,7 +60,6 @@ const countryData = {
       title: "Benefits & Opportunities in Singapore",
       description: "Studying in Singapore is more than a degree—it's a passport to the future.",
       points: [
-        "Work While You Learn: Up to 16 hrs/week part-time; internships with real-world impact.",
         "Gateway to Asia's Job Market: Home to giants like Google, Facebook, Grab, DBS, and 37,000+ MNCs.",
         "PR Possibility: Singapore loves talent. Perform, and you stay. Simple.",
         "Global Exposure: Strategic location = Easy access to Asia-Pacific hubs.",
