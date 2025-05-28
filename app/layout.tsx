@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   title: "CareerMasters - Your Gateway to Studying Abroad",
   description:
     "CareerMasters connects students to global educational opportunities, offering comprehensive services from study tours to visa assistance.",
+    icons:{
+      icon: '/icon.png'
+    }
 }
 
 export default function RootLayout({
