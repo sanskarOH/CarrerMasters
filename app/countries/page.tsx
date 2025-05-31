@@ -9,7 +9,7 @@ const countries = [
     image: "https://images.pexels.com/photos/12657483/pexels-photo-12657483.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
     description: "A global education hub with world-class universities and a vibrant multicultural environment.",
     highlights: [
-      "Home to top-ranked universities like NUS and NTU",
+      "Home to top-ranked universities",
       "Safe, clean environment with excellent infrastructure",
       "Strong job prospects in tech, finance, and healthcare",
       "English as the primary language of instruction",
@@ -48,7 +48,7 @@ const countries = [
     image: "https://images.pexels.com/photos/427679/pexels-photo-427679.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
     description: "Home to some of the world's oldest and most prestigious universities with rich academic traditions.",
     highlights: [
-      "World-renowned institutions like Oxford, Cambridge, and LSE",
+      "World-renowned institutions ",
       "Diverse range of courses and specializations",
       "Rich cultural heritage and student life",
       "Post-study work opportunities with the Graduate Route visa",

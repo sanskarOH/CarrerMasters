@@ -162,7 +162,6 @@ const testimonials = [
     name: "Priya Sharma",
     program: "Master's in Data Science",
     country: "Singapore",
-    image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300&h=300",
     quote:
       "CareerMasters made my dream of studying in Singapore a reality. Their guidance through the visa process and pre-arrival support was invaluable. I'm now pursuing my Master's with a scholarship!",
   },
@@ -171,7 +170,6 @@ const testimonials = [
     name: "Arjun Patel",
     program: "Bachelor's in Business Administration",
     country: "Dubai",
-    image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=300&h=300",
     quote:
       "The team at CareerMasters provided exceptional support throughout my application process. Their knowledge of Dubai's education system and visa requirements made everything smooth. I'm enjoying my studies and the amazing lifestyle here!",
   },
@@ -180,7 +178,7 @@ const testimonials = [
     name: "Kavya Reddy",
     program: "MBA",
     country: "Mauritius",
-    image: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=300&h=300",
+   
     quote:
       "Studying in Mauritius has been a life-changing experience. CareerMasters helped me find the perfect program and guided me through every step. Their post-arrival support made settling in so much easier.",
   },
@@ -189,7 +187,7 @@ const testimonials = [
     name: "Rohit Kumar",
     program: "PhD in Computer Science",
     country: "United Kingdom",
-    image: "https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&w=300&h=300",
+   
     quote:
       "CareerMasters' expertise in UK university applications was crucial for my PhD admission. They helped me secure funding and navigate the complex visa process. Their personalized approach sets them apart from other consultancies.",
   },
@@ -198,7 +196,6 @@ const testimonials = [
     name: "Ananya Singh",
     program: "Master's in Engineering",
     country: "Germany",
-    image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300&h=300",
     quote:
       "I was hesitant about studying in Germany due to the language barrier, but CareerMasters found me an English-taught program and provided language resources. Their comprehensive support made my transition to studying in Europe seamless.",
   },
@@ -207,7 +204,7 @@ const testimonials = [
     name: "Vikram Gupta",
     program: "Bachelor's in Hospitality Management",
     country: "Dubai",
-    image: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=300&h=300",
+   
     quote:
       "From the first consultation to helping me find accommodation in Dubai, CareerMasters was with me every step of the way. Their industry connections even helped me secure an internship at a luxury hotel!",
   },

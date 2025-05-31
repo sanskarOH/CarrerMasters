@@ -26,7 +26,7 @@ const countryData = {
       title: "Welcome to Singapore",
       description:
         "Where tradition meets tech, and education fuels ambition. A city that's not just a place on the map, but a blueprint for the future.\n\nFrom sky-kissing architecture to spotless streets, Singapore is a cultural kaleidoscope with a brain wired for innovation. Think of it as Asia's Silicon Valley wrapped in luxury, order, and opportunity.\n\nHere, you're not just studying abroad—you're stepping into a world that runs like clockwork, dreams like a startup, and delivers like a Fortune 500.",
-      image: "https://images.pexels.com/photos/1559821/pexels-photo-1559821.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
+      image: "https://images.pexels.com/photos/290597/pexels-photo-290597.jpeg?auto=compress&cs=tinysrgb&w=800&h=600",
     },
     whyChoose: {
       title: "Why Singapore as a Study Destination",
@@ -170,7 +170,7 @@ const countryData = {
   },
   mauritius: {
     name: "Mauritius",
-    hero: "https://images.pexels.com/photos/3048196/pexels-photo-3048196.jpeg?auto=compress&cs=tinysrgb&w=1920&h=800",
+    hero: "https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1920&h=800",
     about: {
       title: "Welcome to Mauritius",
       description:

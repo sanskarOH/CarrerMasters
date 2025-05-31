@@ -404,7 +404,7 @@ export default function ContactPage() {
                       <span className="sr-only">Instagram</span>
                     </a>
                     <a
-                      href="#"
+                      href="https://www.linkedin.com/company/career-master-global-pte-ltd"
                       className="rounded-full bg-blue-100 p-3 text-blue-600 hover:bg-blue-200 transition-colors"
                     >
                       <svg
