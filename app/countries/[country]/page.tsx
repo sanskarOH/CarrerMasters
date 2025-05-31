@@ -314,7 +314,7 @@ const countryData = {
   },
   europe: {
     name: "Europe",
-    hero: "https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=1920&h=800",
+    hero: "https://images.pexels.com/photos/30427221/pexels-photo-30427221.jpeg?auto=compress&cs=tinysrgb&w=1920&h=800",
     about: {
       title: "Welcome to Europe",
       description:
